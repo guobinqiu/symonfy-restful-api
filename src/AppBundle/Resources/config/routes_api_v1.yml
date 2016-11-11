@@ -1,0 +1,10 @@
+users:
+    type:     rest
+    name_prefix: api_v1_
+    resource: AppBundle\Controller\api\v1\UsersController
+
+comments:
+    type: rest
+    parent: users
+    name_prefix: api_v1_
+    resource: AppBundle\Controller\api\v1\CommentsController

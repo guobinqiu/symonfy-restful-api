@@ -1,0 +1,7 @@
+{% for user in users %}
+    Name: {{ user.name }}<br>
+    Age: {{ user.age }}<br>
+    Comment: {% for comment in user.comments %}
+        {{ comment.content }}
+    {% endfor %}<br>
+{% endfor %}

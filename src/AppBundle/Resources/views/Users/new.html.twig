@@ -1,0 +1,35 @@
+<h1>Create User</h1>
+
+{#http://symfony.com/doc/current/forms.html#}
+{#http://symfony.com/doc/current/form/action_method.html#}
+{#http://symfony.com/doc/current/reference/forms/twig_reference.html#}
+{#http://symfony.com/doc/current/form/csrf_protection.html#}
+
+{#{{ form_start(form, {'action': path('api_v1_post_users'), 'method': 'POST'}) }}#}
+    {#{{ form_widget(form) }}#}
+{#{{ form_end(form) }}#}
+
+{#or#}
+{#{{ form_start(form, {'action': path('api_v1_post_users'), 'method': 'POST'}) }}#}
+    {#{{ form_errors(form) }}#}
+
+    {#{{ form_row(form.name) }}#}
+    {#{{ form_row(form.age) }}#}
+    {#{{ form_row(form.submit) }}#}
+{#{{ form_end(form) }}#}
+
+{#or#}
+{{ form_start(form, {'action': path('api_v1_post_users'), 'method': 'POST'}) }}
+    {{ form_errors(form) }}
+
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name) }}
+    {{ form_errors(form.name) }}
+
+    {{ form_label(form.age) }}
+    {{ form_widget(form.age) }}
+    {{ form_errors(form.age) }}
+
+    {#{{ form_widget(form.submit, {'attr' : {'class': 'foo'}}) }}#}
+    <input type="submit" value="Create" />
+{{ form_end(form) }}

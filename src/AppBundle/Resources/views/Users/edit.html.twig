@@ -1,0 +1,16 @@
+<h1>Edit User</h1>
+
+{{ form_start(form, {'action': path('api_v1_put_user', {'id': user.id}), 'method': 'PUT'}) }}
+    {{ form_errors(form) }}
+
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name) }}
+    {{ form_errors(form.name) }}
+
+    {{ form_label(form.age) }}
+    {{ form_widget(form.age) }}
+    {{ form_errors(form.age) }}
+
+    {#{{ form_widget(form.submit, {'attr' : {'class': 'foo'}}) }}#}
+    <input type="submit" value="Update" />
+{{ form_end(form) }}
