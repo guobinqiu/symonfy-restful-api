@@ -11,8 +11,8 @@ security:
         in_memory:
             memory:
                 users:
-                    api:
-                        password: $2y$12$ErRiw1WvWzA8mQxi1U1wpukpqZVWkGAfaL2M2mOepW9dECjvqh5ZW
+                    api: #username
+                        password: $2y$12$ErRiw1WvWzA8mQxi1U1wpukpqZVWkGAfaL2M2mOepW9dECjvqh5ZW #dataspring
                         roles: 'ROLE_API'
 
     firewalls:

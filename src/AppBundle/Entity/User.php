@@ -52,8 +52,9 @@ class User
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Comment", mappedBy="user", fetch="EAGER")
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="user")
      */
+    //@ORM\OneToMany(targetEntity="Comment", mappedBy="user", fetch="EAGER")
     private $comments;
 
     /**

@@ -18,6 +18,16 @@ use FOS\RestBundle\Controller\Annotations\View;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+//php bin/console debug:route
+//  api_v1_get_users                     GET      ANY      ANY    /api/v1/users.{_format}
+//  api_v1_new_users                     GET      ANY      ANY    /api/v1/users/new.{_format}
+//  api_v1_post_users                    POST     ANY      ANY    /api/v1/users.{_format}
+//  api_v1_get_user                      GET      ANY      ANY    /api/v1/users/{id}.{_format}
+//  api_v1_edit_user                     GET      ANY      ANY    /api/v1/users/{id}/edit.{_format}
+//  api_v1_put_user                      PUT      ANY      ANY    /api/v1/users/{id}.{_format}
+//  api_v1_delete_user                   DELETE   ANY      ANY    /api/v1/users/{id}.{_format}
+//  api_v1_post_users_register           POST     ANY      ANY    /api/v1/users/register.{_format}
+
 //http://blog.igevin.info/posts/restful-api-get-started-to-write/
 class UsersController extends FOSRestController
 {
@@ -38,6 +48,8 @@ class UsersController extends FOSRestController
 //        }
 
         $view = $this->view($users, Response::HTTP_OK);
+
+        //兼容html请求头
         $view->setTemplate("AppBundle:Users:getUsers.html.twig");
         $view->setTemplateVar('users');
 
@@ -124,6 +136,7 @@ class UsersController extends FOSRestController
     }
 
     //更新指定的用户 PUT /users/{id}
+    //curl -X PUT -H 'Authorization: Basic YXBpOmRhdGFzcHJpbmc=' -H 'Content-Type: application/x-www-form-urlencoded' -d 'user[name]=a' -d 'user[age]=10' -i http://localhost:8000/api/v1/users/1
     public function putUserAction(Request $request, $id){
         $user = $this->getDoctrine()->getRepository('AppBundle:User')->find($id);
 
