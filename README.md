@@ -1,7 +1,3 @@
-api
-===
-Symfony rest api demo.
-
 Startup
 ===
 1. make
