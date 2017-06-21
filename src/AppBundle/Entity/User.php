@@ -27,9 +27,8 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      *
-     *
      */
-    //@Exclude
+    // @Exclude
     private $id;
 
     /**
@@ -44,9 +43,8 @@ class User
      * @var int
      *
      * @ORM\Column(name="age", type="integer")
-     *
+     * @Assert\Range(min=1, max=100)
      */
-    //@Assert\Range(min=1, max=100)
     private $age;
 
     /**
@@ -54,7 +52,6 @@ class User
      *
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="user")
      */
-    //@ORM\OneToMany(targetEntity="Comment", mappedBy="user", fetch="EAGER")
     private $comments;
 
     /**

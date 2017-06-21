@@ -45,11 +45,4 @@ class UsersController extends FOSRestController
 
     //嵌套路由 GET /users/{uid}/comments/{cid}
     //public function getUserCommentAction($uid, $cid){}
-
-    /**
-     * 自定义路由
-     *
-     * @Post("/users/register")
-     */
-    public function postUsersRegisterAction(){}
 }

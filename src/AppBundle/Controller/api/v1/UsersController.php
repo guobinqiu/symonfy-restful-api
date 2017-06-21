@@ -70,7 +70,7 @@ class UsersController extends FOSRestController
 
     // 新建用户 POST /users
     // json submission
-    //curl -X POST -H 'Authorization: Basic YXBpOmRhdGFzcHJpbmc=' -H 'Content-Type: application/json' -d {'user': {'name': 'Guobin', 'age': 10}} -i http://localhost:8000/api/v1/users
+    //curl -X POST -H 'Authorization: Basic YXBpOmRhdGFzcHJpbmc=' -H 'Content-Type: application/json' -d '{"user": {"name": "Guobin", "age": 10}}' -i http://localhost:8000/api/v1/users
 
     // form submission
     //curl -X POST -H 'Authorization: Basic YXBpOmRhdGFzcHJpbmc=' -H 'Content-Type: application/x-www-form-urlencoded' -d 'user[name]=Guobin' -d 'user[age]=10' -i http://localhost:8000/api/v1/users
@@ -78,21 +78,6 @@ class UsersController extends FOSRestController
     //curl -X POST -H 'Authorization: Basic YXBpOmRhdGFzcHJpbmc=' -d 'user[name]=Guobin&user[age]=10' -i http://localhost:8000/api/v1/users
     //Try error: curl -H 'Authorization: Basic YXBpOmRhdGFzcHJpbmc=' -d 'user[name]=Guobin&user[age]=101' -i http://localhost:8000/api/v1/users
     public function postUsersAction(Request $request){
-        //submit with json
-//        $params = $request->request->get('user');
-//
-//        $user = new User();
-//        $user->setName($params['name']);
-//        $user->setAge($params['age']);
-//
-//        $em = $this->getDoctrine()->getManager();
-//        $em->persist($user);
-//        $em->flush();
-//
-//        $view = $this->view($user, Response::HTTP_CREATED);
-//        return $this->handleView($view);
-
-        // submit with form (x-www-form-urlencoded, not multipart/form-data)
         $user = new User();
         $form = $this->createForm('AppBundle\Form\UserType', $user);
         $form->handleRequest($request);
@@ -100,9 +85,7 @@ class UsersController extends FOSRestController
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-
             $view = $this->view($user, Response::HTTP_CREATED);
-            //$view = $this->redirectView($this->generateUrl('api_v1_get_user', array('id' => $user->getId()), Response::HTTP_CREATED));
         } else {
             $view = $this->view($form->getErrors(), Response::HTTP_BAD_REQUEST);
         }
@@ -186,11 +169,4 @@ class UsersController extends FOSRestController
 
     //嵌套路由 GET /users/{uid}/comments/{cid}
     //public function getUserCommentAction($uid, $cid){}
-
-    /**
-     * 自定义路由
-     *
-     * @Post("/users/register")
-     */
-    public function postUsersRegisterAction(){}
 }
