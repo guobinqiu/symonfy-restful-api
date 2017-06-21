@@ -12,7 +12,8 @@ security:
             memory:
                 users:
                     api: #username
-                        password: $2y$12$ErRiw1WvWzA8mQxi1U1wpukpqZVWkGAfaL2M2mOepW9dECjvqh5ZW #dataspring
+                        #password_hash("dataspring", PASSWORD_BCRYPT, ['cost'=>12])
+                        password: $2y$12$ErRiw1WvWzA8mQxi1U1wpukpqZVWkGAfaL2M2mOepW9dECjvqh5ZW
                         roles: 'ROLE_API'
 
     firewalls:
