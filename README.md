@@ -1,5 +1,4 @@
 Startup
-
 ===
 
 1. make
@@ -7,7 +6,6 @@ Startup
 2. make startup
 
 Test
-
 ===
 
 + Success
