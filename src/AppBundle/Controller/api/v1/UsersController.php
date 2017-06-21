@@ -31,6 +31,7 @@ use Symfony\Component\HttpFoundation\Response;
 //http://blog.igevin.info/posts/restful-api-get-started-to-write/
 class UsersController extends FOSRestController
 {
+    //YXBpOmRhdGFzcHJpbmc: base64_encode('api:dataspring')
     //显示所有用户 GET /users
     //curl -X GET -H 'Authorization: Basic YXBpOmRhdGFzcHJpbmc=' -H 'Content-Type: application/json' -i 'http://localhost:8000/api/v1/users'
     public function getUsersAction()
